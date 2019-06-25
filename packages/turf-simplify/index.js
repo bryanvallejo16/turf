@@ -117,7 +117,7 @@ function simplifyLine(coordinates, tolerance, highQuality) {
     return simplifyJS(coordinates.map(function (coord) {
         return {x: coord[0], y: coord[1], z: coord[2]};
     }), tolerance, highQuality).map(function (coords) {
-        return (coords.z) ? [coords.x, coords.y, coords.z] : [coords.x, coords.y];
+        return typeof coords.z !== 'undefined' ? [coords.x, coords.y, coords.z] : [coords.x, coords.y];
     });
 }
 
